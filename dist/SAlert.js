@@ -267,6 +267,11 @@
                 return insertFunc(msg, data, 'success');
             }
         }, {
+            key: 'update',
+            value: function update(id, customFields) {
+                _sAlertStore2.default.dispatch({ type: 'UPDATE', data: { id: id, customFields: customFields } });
+            }
+        }, {
             key: 'close',
             value: function close(id) {
                 _sAlertStore2.default.dispatch({ type: 'REMOVE', data: { id: id } });

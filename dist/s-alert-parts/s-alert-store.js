@@ -61,6 +61,21 @@
         return [].concat(_toConsumableArray(state), [action.data]);
     };
 
+    var update = function update(state, action) {
+        var elemToUpdateArray = state.slice().filter(function (item) {
+            return item.id === action.data.id;
+        });
+        if (Array.isArray(elemToUpdateArray)) {
+            var elemToUpdateIndex = state.indexOf(elemToUpdateArray[0]);
+            if (elemToUpdateIndex > -1) {
+                state[elemToUpdateIndex].customFields = action.data.customFields;
+                return [].concat(_toConsumableArray(state));
+            }
+            return state;
+        }
+        return state;
+    };
+
     var remove = function remove(state, action) {
         var elemToRemoveArray = state.slice().filter(function (item) {
             return item.id === action.data.id;
@@ -79,6 +94,8 @@
         switch (action.type) {
             case 'INSERT':
                 return insert(state, action);
+            case 'UPDATE':
+                return update(state, action);
             case 'REMOVE':
                 return remove(state, action);
             case 'REMOVEALL':
