@@ -6,13 +6,18 @@
 }
 
 .s-alert-box {
+    border-radius: 0.1rem;
+    opacity: 0.7;
+    background: #000;
+    color: #fff;
+    box-shadow: 0px 0px 10px black;
+    margin: 1rem 0rem;
+    padding: 15px;
+
     position: fixed;
-    background: rgba(42,45,50,0.85);
-    padding: 22px;
     line-height: 1.4;
-    z-index: 1000;
+    z-index: 9999;
     pointer-events: none;
-    color: rgba(250,251,255,0.95);
     font-size: 100%;
     font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
     max-width: 300px;
@@ -134,20 +139,12 @@
 /* conditions */
 
 .s-alert-info {
-    background: #00A2D3;
-    color: #fff;
 }
 .s-alert-success {
-    background: #27AE60;
-    color: #fff;
 }
 .s-alert-warning {
-    background: #F1C40F;
-    color: #fff;
 }
 .s-alert-error {
-    background: #E74C3C;
-    color: #fff;
 }
 
 [class^="s-alert-effect-"].s-alert-hide,
