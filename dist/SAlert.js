@@ -96,6 +96,18 @@
         return id;
     };
 
+    var updateFunc = function updateFunc(id, msg, data, condition) {
+        _sAlertStore2.default.dispatch({
+            type: 'UPDATE',
+            data: Object.assign({}, data, {
+                id: id,
+                condition: condition,
+                message: msg
+            })
+        });
+        return id;
+    };
+
     var SAlert = function (_React$Component) {
         _inherits(SAlert, _React$Component);
 
@@ -268,8 +280,10 @@
             }
         }, {
             key: 'update',
-            value: function update(id, customFields) {
-                _sAlertStore2.default.dispatch({ type: 'UPDATE', data: { id: id, customFields: customFields } });
+            value: function update(id, msg, condition) {
+                var data = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
+
+                return updateFunc(id, msg, data, condition);
             }
         }, {
             key: 'close',

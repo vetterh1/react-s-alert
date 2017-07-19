@@ -68,10 +68,13 @@
         if (Array.isArray(elemToUpdateArray)) {
             var elemToUpdateIndex = state.indexOf(elemToUpdateArray[0]);
             if (elemToUpdateIndex > -1) {
-                state[elemToUpdateIndex].customFields = action.data.customFields;
+                state[elemToUpdateIndex].message = action.data.message;
+                state[elemToUpdateIndex].condition = action.data.condition;
                 return [].concat(_toConsumableArray(state));
             }
-            return state;
+            // If not found, create a new one (with same id)
+            // To check if works!
+            return [].concat(_toConsumableArray(state), [action.data]);
         }
         return state;
     };
