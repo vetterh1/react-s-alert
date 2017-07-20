@@ -179,7 +179,7 @@
 
                 // Existing alert has been updated with different message...
                 // must prolongate the timeout!
-                console.log('sAlert: restart timeout (existing closeTimer: ' + this.closeTimer + ', timeout: ' + this.props.timeout + ')');
+                // console.log(`sAlert: restart timeout (existing closeTimer: ${this.closeTimer}, timeout: ${this.props.timeout})`);
                 if (this.props.timeout) {
                     // Stop existing
                     if (this.closeTimer) clearTimeout(this.closeTimer);
