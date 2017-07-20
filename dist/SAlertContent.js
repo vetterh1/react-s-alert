@@ -170,6 +170,28 @@
                 }
             }
         }, {
+            key: 'componentWillReceiveProps',
+            value: function componentWillReceiveProps(nextProps) {
+                var _this3 = this;
+
+                if (!nextProps || !nextProps.message || !nextProps.id) return;
+                if (nextProps.message === this.props.message && nextProps.id === nextProps.id) return;
+
+                // Existing alert has been updated with different message...
+                // must prolongate the timeout!
+                console.log('sAlert: restart timeout (existing closeTimer: ' + this.closeTimer + ', timeout: ' + this.props.timeout + ')');
+                if (this.props.timeout) {
+                    // Stop existing
+                    if (this.closeTimer) clearTimeout(this.closeTimer);
+                    // Restart new one
+                    if (typeof this.props.timeout === 'number') {
+                        this.closeTimer = setTimeout(function () {
+                            _this3.handleCloseAlert();
+                        }, this.props.timeout);
+                    }
+                }
+            }
+        }, {
             key: 'componentWillUnmount',
             value: function componentWillUnmount() {
                 if (this.closeTimer) {

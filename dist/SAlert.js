@@ -97,6 +97,8 @@
     };
 
     var updateFunc = function updateFunc(id, msg, data, condition) {
+        // create if update a null id :)
+        if (!id) id = _sAlertTools2.default.randomId();
         _sAlertStore2.default.dispatch({
             type: 'UPDATE',
             data: Object.assign({}, data, {
